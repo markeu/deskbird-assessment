@@ -1,13 +1,15 @@
 import 'reflect-metadata';
 import express, { Application, Request, Response, NextFunction } from 'express';
-import bodyParser from 'body-parser';
-import { NotFoundError } from './utils/ApiError';
-import ErrorHandler from './middlewares/ErrorHandler';
-import Config from './config/Config';
-import routes from './routes';
 import http from 'http';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import swaggerUi from 'swagger-ui-express';
+
+import routes from './routes';
+import Config from './config/Config';
+import { NotFoundError } from './utils/ApiError';
+import ErrorHandler from './middlewares/ErrorHandler';
+
 import { swaggerDocument } from '../swagger';
 import { Sequelize } from 'sequelize/types';
 import connection from './services/SequelizeClient';

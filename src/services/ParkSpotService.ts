@@ -2,7 +2,7 @@
 import { Service } from 'typedi';
 
 import { LoggerClient } from './LoggerClient';
-import ParkingSpotRepository from '../repositories/parkSpotRepository';
+import ParkingSpotRepository from '../repositories/ParkSpotRepository';
 
 @Service()
 export default class UserService {
