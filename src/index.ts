@@ -7,12 +7,11 @@ import swaggerUi from 'swagger-ui-express';
 
 import routes from './routes';
 import Config from './config/Config';
-import { NotFoundError } from './utils/ApiError';
-import ErrorHandler from './middlewares/ErrorHandler';
-
-import { swaggerDocument } from '../swagger';
 import { Sequelize } from 'sequelize/types';
+import { swaggerDocument } from '../swagger';
+import { NotFoundError } from './utils/ApiError';
 import connection from './services/SequelizeClient';
+import ErrorHandler from './middlewares/ErrorHandler';
 
 const app: Application = express();
 const PORT = Config.port || 4000;
