@@ -8,6 +8,6 @@
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false
   },
-  "include": ["src", "src/models/seeders/**/*.ts"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }

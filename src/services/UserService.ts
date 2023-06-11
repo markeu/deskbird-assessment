@@ -14,6 +14,11 @@ export default class UserService {
     return result;
   };
 
+  seedUsers = async() => {
+    const result = this.userRepository.createSeedUser();
+    return result;
+  }
+
   // signIn = async (email: string, password: string) => {
   //   this.logger.info(`Email of the registered user is ${email}`);
   //   const userWithEmail: User | null = await this.userRepository.findByEmail(email);

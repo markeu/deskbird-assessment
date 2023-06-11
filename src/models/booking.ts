@@ -1,5 +1,5 @@
 import { Table, Model, Column, DataType, ForeignKey, BelongsTo, CreatedAt, UpdatedAt } from 'sequelize-typescript';
-import ParkingSpot from './parkSpot';
+import ParkingSpot  from './ParkSpot';
 
 @Table({ tableName: 'bookings' })
 export default class Booking extends Model {

@@ -1,7 +1,8 @@
-import { format, transports, createLogger, Logger } from 'winston';
-import DailyRotateFile from 'winston-daily-rotate-file';
-import morgan, { StreamOptions } from 'morgan';
 import { Service } from 'typedi';
+import morgan, { StreamOptions } from 'morgan';
+import DailyRotateFile from 'winston-daily-rotate-file';
+import { format, transports, createLogger, Logger } from 'winston';
+
 const { combine, timestamp, json } = format;
 
 
