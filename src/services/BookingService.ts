@@ -4,7 +4,7 @@ import { LoggerClient } from './LoggerClient';
 import ParkingSpotRepository from '../repositories/ParkSpotRepository';
 
 @Service()
-export default class ParkSpotService {
+export default class BookingService {
     constructor(public parkingSpotRepository: ParkingSpotRepository, public logger: LoggerClient) { }
 
     seedParkingSpot = async () => {

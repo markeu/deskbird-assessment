@@ -8,6 +8,6 @@
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false
   },
-  "include": ["src"],
+  "include": ["src", "jest.config.ts", "__test__/userService.test.ts"],
   "exclude": ["node_modules"]
 }

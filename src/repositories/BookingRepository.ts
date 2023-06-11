@@ -24,7 +24,7 @@ export default class BookingRepository {
         return booking.startTime <= currentTime && booking.endTime <= currentTime;
     };
 
-    findLatestBooking = async (parkingSpotId: number): Promise<boolean> => {
+    findLatestBookingStatus = async (parkingSpotId: number): Promise<boolean> => {
         const currentTime = new Date();
 
         const latestBooking = await Booking.findOne({
