@@ -25,6 +25,14 @@ export default class BookingRepository {
     return await Booking.findAll();
   };
 
+  getAllUserBookings = async (createdBy: string): Promise<Booking[]> => {
+    return await Booking.findAll({
+      where: {
+        createdBy: createdBy,
+      },
+    });
+  };
+
   isTimeElapsed = (booking: Booking, currentTime: Date): boolean => {
     return booking.startTime <= currentTime && booking.endTime <= currentTime;
   };

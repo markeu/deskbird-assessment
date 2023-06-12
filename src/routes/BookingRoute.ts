@@ -11,5 +11,8 @@ const router = express.Router();
 const bookingController = Container.get(BookingController);
 
 router.post('/', authMiddleware, bookingController.createBooking);
+router.get('/', authMiddleware, bookingController.getBooking);
+router.patch('/', authMiddleware, bookingController.updateBooking);
+router.delete('/', authMiddleware, bookingController.deleteBooking);
 
 export default router;

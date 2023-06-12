@@ -3,7 +3,6 @@ import UserService from '../src/services/UserService';
 import { LoggerClient } from '../src/services/LoggerClient';
 import User from '../src/models/User';
 
-// Mock UserRepository and LoggerClient dependencies
 jest.mock('../src/repositories/UserRepository');
 jest.mock('../src/services/LoggerClient');
 
@@ -18,7 +17,6 @@ describe('UserService', () => {
     userService = new UserService(userRepositoryMock, loggerClientMock);
   });
 
-  // Test cases...
   it('signUp should call userRepository.createUser and return the result', async () => {
     const firstName = 'John';
     const email = 'john@example.com';

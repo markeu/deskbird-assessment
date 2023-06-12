@@ -9,6 +9,6 @@ export const decodeToken = (token: string): Partial<{ email: string; role: strin
 };
 
 export const createToken = (payload: { email: string; role: string }): string => {
-  const token = sign(payload, SECRET_KEY, { expiresIn: '1h' });
+  const token = sign(payload, SECRET_KEY, { expiresIn: '1w' });
   return token;
 };

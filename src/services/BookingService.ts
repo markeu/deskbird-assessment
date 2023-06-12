@@ -3,6 +3,7 @@ import { Service } from 'typedi';
 import { LoggerClient } from './LoggerClient';
 import BookingRepository from '../repositories/BookingRepository';
 import { ApplicationError } from '../utils/ApiError';
+import Booking from '../models/Booking';
 @Service()
 export default class BookingService {
   constructor(public bookingRepository: BookingRepository, public logger: LoggerClient) {}
@@ -25,13 +26,61 @@ export default class BookingService {
     return newBooking;
   };
 
-  // getParkingSpotByName = async (name: string) => {
-  //     const result = await this.parkingSpotRepository.findByName(name);
-  //     return result;
-  // }
+  getBookings = async (role: string, email: string) => {
+    let result;
 
-  // getAllParkinSpot = async () => {
-  //     const result = await this.parkingSpotRepository.getAllParkSpot();
-  //     return result;
-  // };
+    //put the constant away
+    if (role === 'admin') {
+      result = await this.bookingRepository.getAllBookings();
+    } else {
+      result = await this.bookingRepository.getAllUserBookings(email);
+    }
+
+    return result;
+  };
+
+  updateBooking = async (
+    bookingId: number,
+    updatedBookingData: Partial<Booking>,
+    userRole: string,
+    userEmail: string,
+  ) => {
+    const booking = await this.bookingRepository.findByBookingId(bookingId);
+
+    if (!booking) {
+      throw new ApplicationError('Booking not found');
+    }
+
+    if (userRole === 'admin') {
+      const updatedBooking = await this.bookingRepository.updateBookingById(bookingId, updatedBookingData);
+      return updatedBooking;
+    }
+
+    if (booking.createdBy !== userEmail) {
+      throw new ApplicationError('You can only update your own bookings');
+    }
+
+    const updatedBooking = await this.bookingRepository.updateBookingById(bookingId, updatedBookingData);
+    return updatedBooking;
+  };
+
+  deleteBooking = async (bookingId: number, userRole: string, userEmail: string) => {
+    const booking = await this.bookingRepository.findByBookingId(bookingId);
+
+    if (!booking) {
+      throw new ApplicationError('Booking not found');
+    }
+
+    if (userRole === 'admin') {
+      await this.bookingRepository.deleteBookingById(bookingId);
+      return 'Booking deleted successfully';
+    }
+
+    if (booking.createdBy !== userEmail) {
+      throw new ApplicationError('You can only delete your own bookings');
+    }
+
+    await this.bookingRepository.deleteBookingById(bookingId);
+    return 'Booking deleted successfully';
+  };
 }
