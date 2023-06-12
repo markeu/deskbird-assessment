@@ -1,10 +1,10 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { ApiError } from '../utils/ApiError';
 
 
 export default class ErrorHandler {
   static handle = () => {
-    return async (err: ApiError, req: Request, res: Response, next: NextFunction) => {
+    return async (err: ApiError, req: Request, res: Response) => {
       const statusCode = err.statusCode || 500;
       console.log('error occurred: ', err.toString(), statusCode);
       res.status(statusCode).send({
@@ -17,7 +17,7 @@ export default class ErrorHandler {
   };
 
   static initializeUnhandledException = () => {
-    process.on('unhandledRejection', (reason: Error, promise: Promise<any>) => {
+    process.on('unhandledRejection', (reason: Error) => {
       console.log(reason.name, reason.message);
       console.log('UNHANDLED REJECTION! 💥 Shutting down...');
       throw reason;

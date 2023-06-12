@@ -43,15 +43,15 @@ export class LoggerClient {
     this.logger.error(message);
   };
 
-  private errorFilter = format((info, opts) => {
+  private errorFilter = format((info) => {
     return info.level === 'error' ? info : false;
   });
 
-  private infoFilter = format((info, opts) => {
+  private infoFilter = format((info) => {
     return info.level === 'info' ? info : false;
   });
 
-  private httpFilter = format((info, opts) => {
+  private httpFilter = format((info) => {
     return info.level === 'http' ? info : false;
   });
 

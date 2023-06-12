@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export class SuccessResponse {
   statusCode: number;
   data: any;

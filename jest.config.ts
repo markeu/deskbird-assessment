@@ -8,10 +8,8 @@ const config: Config.InitialOptions = {
   collectCoverageFrom: ['src/**/*.ts'],
   coveragePathIgnorePatterns: ['/node_modules/', '/__test__/'],
   coverageReporters: ['text', 'lcov'],
-  globals: {
-    'ts-jest': {
-      tsconfig: 'tsconfig.json',
-    },
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
   },
 };
 

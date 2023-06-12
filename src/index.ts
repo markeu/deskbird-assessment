@@ -34,6 +34,7 @@ const startServer = async () => {
     server = app.listen(PORT, (): void => {
       console.log(`Connected successfully on port ${PORT}`);
     });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error(`Error occurred: ${error.message}`);
   }
