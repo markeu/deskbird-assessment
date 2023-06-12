@@ -14,7 +14,7 @@ const userMockData = [
     firstName: 'Jane',
     lastName: 'Smith',
     email: 'janesmith@example.com',
-    token: createToken({ email: 'janesmith@example.com', role: 'admin', }),
+    token: createToken({ email: 'janesmith@example.com', role: 'admin' }),
     role: 'admin',
   },
 ];

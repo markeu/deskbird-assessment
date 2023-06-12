@@ -31,7 +31,7 @@ export default class BookingRepository {
 
   findLatestBookingStatus = async (parkingSpotId: number): Promise<boolean> => {
     const currentTime = new Date();
-  
+
     const latestBooking = await Booking.findOne({
       where: {
         parkingSpotId: parkingSpotId,
@@ -41,11 +41,11 @@ export default class BookingRepository {
       },
       order: [['startTime', 'DESC']],
     });
-  
+
     if (!latestBooking) {
       return true;
     }
-  
+
     return false;
   };
 

@@ -13,7 +13,7 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
       throw new ApplicationError('No authorization header provided');
     }
 
-    const token = authorization.split(' ')[1];    
+    const token = authorization.split(' ')[1];
     const tokenData = decodeToken(token);
 
     if (!tokenData || !tokenData.email || !tokenData.role) {
@@ -24,6 +24,6 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
     req.user = { email, role };
     next();
   } catch (err) {
-    next(err)
+    next(err);
   }
 };

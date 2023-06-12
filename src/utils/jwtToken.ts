@@ -4,7 +4,7 @@ import { verify, sign } from 'jsonwebtoken';
 const SECRET_KEY = 'eZTdFm9@0qp-+s#F9A3nQI6XTwNRGKLX';
 
 export const decodeToken = (token: string): Partial<{ email: string; role: string }> => {
-  const decodedToken = verify(token, SECRET_KEY);  
+  const decodedToken = verify(token, SECRET_KEY);
   return decodedToken as Partial<{ email: string; role: string }>;
 };
 

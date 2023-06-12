@@ -5,12 +5,12 @@ import BookingRepository from '../repositories/BookingRepository';
 import { ApplicationError } from '../utils/ApiError';
 @Service()
 export default class BookingService {
-  constructor(public bookingRepository: BookingRepository, public logger: LoggerClient) { }
+  constructor(public bookingRepository: BookingRepository, public logger: LoggerClient) {}
 
   createParkingSpotBooking = async (startTime: Date, endTime: Date, parkingSpotId: number, createdBy: string) => {
     const currentTime = new Date().getTime();
     const startDateTime = new Date(startTime).getTime();
-  
+
     if (startDateTime < currentTime) {
       throw new ApplicationError('Booking start time must not be in the past');
     }
