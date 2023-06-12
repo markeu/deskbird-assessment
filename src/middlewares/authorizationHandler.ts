@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { decodeToken } from '../utils/decipherToken';
+
+import { decodeToken } from '../utils/jwtToken';
 import { ApplicationError } from '../utils/ApiError';
-import { JsonWebTokenError } from 'jsonwebtoken';
 
 export const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -13,7 +13,7 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
       throw new ApplicationError('No authorization header provided');
     }
 
-    const token = authorization.split(' ')[1];
+    const token = authorization.split(' ')[1];    
     const tokenData = decodeToken(token);
 
     if (!tokenData || !tokenData.email || !tokenData.role) {
@@ -24,13 +24,6 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
     req.user = { email, role };
     next();
   } catch (err) {
-    if (err instanceof ApplicationError) {
-      res.status(err.statusCode).json({ status: false, error: err.message });
-    } else if (err instanceof JsonWebTokenError) {
-      res.status(400).json({ status: false, error: err.message });
-    } else {
-      console.log(err);
-      res.status(500).json({ status: false, error: 'Internal Server Error' });
-    }
+    next(err)
   }
 };

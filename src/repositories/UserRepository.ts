@@ -1,21 +1,20 @@
 import User from '../models/User';
 import { Service } from 'typedi';
+import { createToken } from '../utils/jwtToken';
 
 const userMockData = [
   {
     firstName: 'John',
     lastName: 'Doe',
     email: 'johndoe@example.com',
-    token:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJqb2huZG9lQGV4YW1wbGUuY29tIiwicm9sZSI6InN0YW5kYXJkIiwiaWF0IjoxNTE2MjM5MDIyfQ.rXMPkokvfDyY6lDU_42dDinmvDJ5grkkZcoSk9nepEs',
+    token: createToken({ email: 'johndoe@example.com', role: 'standard' }),
     role: 'standard',
   },
   {
     firstName: 'Jane',
     lastName: 'Smith',
     email: 'janesmith@example.com',
-    token:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJqYW5lc21pdGhAZXhhbXBsZS5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1MTYyMzkwMjJ9.J9ZmU4AnEEAvDfvyinLRoOghBvbRfYj6UcwvKGJQW4Y',
+    token: createToken({ email: 'janesmith@example.com', role: 'admin', }),
     role: 'admin',
   },
 ];
