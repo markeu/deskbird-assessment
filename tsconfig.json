@@ -12,9 +12,10 @@
     "src",
     "jest.config.ts",
     "__test__/userService.test.ts",
-    "customRequest.d.ts"
+  
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+   "files":[ "custom.d.ts"]
 }

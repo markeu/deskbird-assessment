@@ -10,6 +10,6 @@ const router = express.Router();
  */
 const bookingController = Container.get(BookingController);
 
-router.post('/booking', authMiddleware, bookingController.createBooking);
+router.post('/', authMiddleware, bookingController.createBooking);
 
 export default router;
