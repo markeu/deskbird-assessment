@@ -1,27 +1,23 @@
 import ParkSpot from '../models/ParkSpot';
 import { Service } from 'typedi';
 
-const parkingSpotmockData = [
-    { name: 'sandex' },
-    { name: 'sandex' },
-    { name: 'twillo' },
-];
+const parkingSpotmockData = [{ name: 'sandex' }, { name: 'sandex' }, { name: 'twillo' }];
 
 @Service()
 export default class UserRepository {
-    createSeedParkSpot = async (): Promise<string> => {
-        for (const item of parkingSpotmockData) {
-            const user = ParkSpot.build(item);
-            await user.save();
-        }
-        return "Successfully Seeded Parking Spots!!"
-    };
+  createSeedParkSpot = async (): Promise<string> => {
+    for (const item of parkingSpotmockData) {
+      const user = ParkSpot.build(item);
+      await user.save();
+    }
+    return 'Successfully Seeded Parking Spots!!';
+  };
 
-    findByName = async (name: string): Promise<ParkSpot | null> => {
-        return await ParkSpot.findOne({ where: { name } });
-    };
+  findByName = async (name: string): Promise<ParkSpot | null> => {
+    return await ParkSpot.findOne({ where: { name } });
+  };
 
-    getAllParkSpot = async (): Promise<ParkSpot[]> => {
-        return await ParkSpot.findAll();
-    };
+  getAllParkSpot = async (): Promise<ParkSpot[]> => {
+    return await ParkSpot.findAll();
+  };
 }

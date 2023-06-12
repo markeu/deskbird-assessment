@@ -9,9 +9,7 @@
     "build": "cross-env NODE_ENV=production tsc",
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix",
-    "pretty": "prettier --write \"src/**/*.ts\"",
-    "seed:users": "ts-node-dev src/models/seed/user.seed.ts",
-    "seed:parkingSpot": "ts-node-dev src/models/seed/parkSpot.seed.ts"
+    "pretty": "prettier --write \"src/**/*.ts\""
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",

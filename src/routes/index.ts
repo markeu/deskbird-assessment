@@ -1,5 +1,6 @@
 import express from 'express';
 import authRoute from './AuthRoute';
+import bookingRoute from './BookingRoute';
 import parkSpotRoute from './ParkSpotRoute';
 
 const router = express.Router();
@@ -10,8 +11,12 @@ const allRoutes = [
     route: authRoute,
   },
   {
-    path: '/',
+    path: '/parking',
     route: parkSpotRoute,
+  },
+  {
+    path: '/booking',
+    route: bookingRoute,
   },
 ];
 

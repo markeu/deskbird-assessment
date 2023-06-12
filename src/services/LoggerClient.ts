@@ -5,7 +5,6 @@ import { format, transports, createLogger, Logger } from 'winston';
 
 const { combine, timestamp, json } = format;
 
-
 @Service()
 export class LoggerClient {
   private logger: Logger;

@@ -7,12 +7,15 @@ import { SuccessResponse } from '../utils/SuccessResponse';
 
 @Service()
 export default class BookingController {
-    constructor(public bookingService: BookingService) { }
+  constructor(public bookingService: BookingService) {}
 
-    seedParkingSpot = asyncWrapper(async (req: Request) => {
-        const response = await this.bookingService.createParkingSpotBooking(req.body.startTime, req.body.endTime, req.body.parkingSpotId, req.user.email)
-        return new SuccessResponse(response);
-    })
-
-
+  createBooking = asyncWrapper(async (req: Request) => {
+    const response = await this.bookingService.createParkingSpotBooking(
+      req.body.startTime,
+      req.body.endTime,
+      req.body.parkingSpotId,
+      req.user.email,
+    );
+    return new SuccessResponse(response);
+  });
 }

@@ -1,7 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import config from '../config/Config';
 
-
 const connection = new Sequelize({
   dialect: 'postgres',
   host: config.dbHost,

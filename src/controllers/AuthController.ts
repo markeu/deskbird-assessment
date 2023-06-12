@@ -6,13 +6,13 @@ import { Service } from 'typedi';
 
 @Service()
 export default class AuthController {
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) {}
 
   seedUsers = asyncWrapper(async () => {
     const response = await this.userService.seedUsers();
 
     return new SuccessResponse(response);
-  })
+  });
 
   signUp = asyncWrapper(async (req: Request) => {
     const { email, firstName, lastName, role, token } = req.body;

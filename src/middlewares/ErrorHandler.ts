@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { ApiError } from '../utils/ApiError';
 
-
 export default class ErrorHandler {
   static handle = () => {
     return async (err: ApiError, req: Request, res: Response) => {

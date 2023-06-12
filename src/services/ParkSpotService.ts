@@ -5,20 +5,20 @@ import ParkingSpotRepository from '../repositories/ParkSpotRepository';
 
 @Service()
 export default class ParkSpotService {
-    constructor(public parkingSpotRepository: ParkingSpotRepository, public logger: LoggerClient) { }
+  constructor(public parkingSpotRepository: ParkingSpotRepository, public logger: LoggerClient) {}
 
-    seedParkingSpot = async () => {
-        const result = await this.parkingSpotRepository.createSeedParkSpot();
-        return result;
-    }
+  seedParkingSpot = async () => {
+    const result = await this.parkingSpotRepository.createSeedParkSpot();
+    return result;
+  };
 
-    getParkingSpotByName = async (name: string) => {
-        const result = await this.parkingSpotRepository.findByName(name);
-        return result;
-    }
+  getParkingSpotByName = async (name: string) => {
+    const result = await this.parkingSpotRepository.findByName(name);
+    return result;
+  };
 
-    getAllParkinSpot = async () => {
-        const result = await this.parkingSpotRepository.getAllParkSpot();
-        return result;
-    };
+  getAllParkinSpot = async () => {
+    const result = await this.parkingSpotRepository.getAllParkSpot();
+    return result;
+  };
 }

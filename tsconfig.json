@@ -6,8 +6,15 @@
     "outDir": "dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
   },
-  "include": ["src", "jest.config.ts", "__test__/userService.test.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src",
+    "jest.config.ts",
+    "__test__/userService.test.ts",
+    "customRequest.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
