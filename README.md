@@ -2,8 +2,6 @@
   <h2 align="center">Book-a-Spot</h2>
 </div>
 
-
-## About The Project
 This is an ExpressJS application with the following features.
 
 - Typescript all the way
@@ -16,7 +14,6 @@ This is an ExpressJS application with the following features.
 - Swagger API documentation
 - Dependency Injection using TypeDI
 - Setting up Test suites using Jest
-
 
 ## Technologies
 
