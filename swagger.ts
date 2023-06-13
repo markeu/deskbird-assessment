@@ -24,6 +24,8 @@ export const swaggerDocument = {
   paths: {
     '/auth/users': {
       get: getUsers,
+    },
+    '/auth/seed-users': {
       post: seedUsers,
     },
     '/parking-spot': {

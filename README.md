@@ -12,6 +12,7 @@ ParkEasy is an ExpressJS application with the following features:
 - Includes Swagger API documentation
 - Dependency Injection using TypeDI
 - Test suites set up using Jest
+- Optimized performance through indexing on the high-read model (Booking).
 
 ## Technologies
 
@@ -45,14 +46,13 @@ If Docker is already installed and running on your machine, run the following co
 docker-compose up
 ```
 
-This command will start the Express server in development mode with hot reloading support, a PostgreSQL database server, and a database investigation tool named Adminer accessible at http://localhost:8080.
+This command will start the Express server in development mode with hot reloading support, a PostgreSQL database server, and a database investigation tool named Adminer accessible at `http://localhost:8080`.
 
 If you want to change or update any code you can just make the change and from the console you will see that the server is getting updated.
 
 ## Documentation
 Please note that the server is not currently hosted, so the URL will become active only after you start the server.
 [You can find the full documentation here](http://localhost:4000/api-docs/)
-
 
 ## Testing the APIs
 
@@ -62,7 +62,6 @@ To perform testing, follow these steps:
 - Seed the parking spot data. This is necessary as a successful booking requires an existing parking spot.
 
 By completing these steps, you can ensure a comprehensive testing environment for the functionality of the system.
-
 
 ## Project Structure
 

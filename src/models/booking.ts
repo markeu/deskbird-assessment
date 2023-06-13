@@ -1,8 +1,16 @@
-import { Table, Model, Column, DataType, ForeignKey, BelongsTo, CreatedAt, UpdatedAt } from 'sequelize-typescript';
+import { Table, Model, Column, DataType, ForeignKey, BelongsTo, CreatedAt, UpdatedAt, Index } from 'sequelize-typescript';
 import ParkingSpot from './ParkSpot';
 
 @Table({ tableName: 'bookings' })
 export default class Booking extends Model {
+  @Index('booking_id_index')
+  @Column({
+    type: DataType.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  })
+  id!: number;
+
   @Column({
     type: DataType.STRING,
     allowNull: false,

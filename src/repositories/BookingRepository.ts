@@ -18,8 +18,9 @@ export default class BookingRepository {
   };
 
   findByBookingId = async (bookingId: number): Promise<Booking | null> => {
-    return await Booking.findOne({ where: { id: bookingId } });
+    return await Booking.findByPk(bookingId);
   };
+  
 
   getAllBookings = async (): Promise<Booking[]> => {
     return await Booking.findAll();
