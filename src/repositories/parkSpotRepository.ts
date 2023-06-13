@@ -1,5 +1,5 @@
-import ParkSpot from '../models/ParkSpot';
 import { Service } from 'typedi';
+import ParkSpot from '../models/ParkSpot';
 
 const parkingSpotmockData = [{ name: 'sandex' }, { name: 'sandex' }, { name: 'twillo' }];
 

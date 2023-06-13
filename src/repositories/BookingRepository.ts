@@ -63,7 +63,7 @@ export default class BookingRepository {
     return await Booking.findAll({
       where: {
         endTime: {
-          [Op.lt]: currentTime, // Find bookings where endTime is less than current time
+          [Op.lt]: currentTime,
         },
       },
     });
@@ -74,7 +74,7 @@ export default class BookingRepository {
     return await Booking.findAll({
       where: {
         startTime: {
-          [Op.gt]: currentTime, // Find bookings where endTime is less than current time
+          [Op.gt]: currentTime,
         },
       },
     });

@@ -54,7 +54,7 @@ export const seedUsers = {
         'application/json': {
           schema: {
             type: 'string',
-            example: 'Successfully Seeded Users!!', // Add the example value
+            example: 'Successfully Seeded Users!!',
           },
         },
       },
