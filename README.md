@@ -69,21 +69,34 @@ If you want to change or update any code you can just make the change and from t
 
 ## Documentation
 PS: Please note that the server is not currently hosted, so the URL will become active only after you start the server.
-[You can find the full documentation here](https://express-typescript-boilerplate-documentation.vercel.app/)
+[You can find the full documentation here](http://localhost:4000/api-docs/)
+
+
+# Testing
+
+To perform testing, you can utilize the provided documentation URL and follow these steps:
+
+- Seed the database with user data.
+- Seed the parking spot data. This is necessary as a successful booking requires an existing parking spot.
+
+By completing these steps, you can ensure a comprehensive testing environment for the functionality of the system.
+
 
 ## Project Structure
 
 The project follows a specific directory structure to keep the code organized and maintainable. Here's an overview of each directory and its purpose:
 
-`/routes`: This directory contains the route files. RegisterS the router in the `index.ts` file located in this directory.
+`/src/routes`: This directory contains the route files. RegisterS the router in the `index.ts` file located in this directory.
 
-`/controllers`: The /controllers directory is where you'll find the Controller files. These files contain the business logic of your application. 
+`/src/controllers`: The /controllers directory is where you'll find the Controller files. These files contain the business logic of your application. 
 
-`/service`: In the /service directory, you'll find the Service classes. These classes handle more specific and complex use cases of your application. They encapsulate and manage the business logic related to these functionalities.
+`/src/service`: In the /service directory, you'll find the Service classes. These classes handle more specific and complex use cases of your application. They encapsulate and manage the business logic related to these functionalities.
 
-`/repositories`: All the database-related operations reside in the `/repositories` directory.
+`/src/repositories`: All the database-related operations reside in the `/repositories` directory.
 
-`/models`: The `/models` directory is used for defining data models for the database.
+`/src/models`: The `/models` directory is used for defining data models for the database.
+
+`/__test__` : directory serves as the home for your test suite. It is where you define and organize your tests to ensure the quality and correctness of your code. To run the test suite, you can simply use the command `yarn test`. 
 
 By following this directory structure, you can easily locate and manage the different components of the project, improving the maintainability and scalability.
 

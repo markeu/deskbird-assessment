@@ -1,4 +1,4 @@
-import { getUsers, seedUsers, postBooking, getBooking, patchBooking, deleteBooking } from './src/open-api/api-docs';
+import { getUsers, seedUsers, postBooking, getBooking, patchBooking, deleteBooking, seedParkSpot } from './src/open-api/api-docs';
 
 export const swaggerDocument = {
   openapi: '3.0.1',
@@ -25,6 +25,9 @@ export const swaggerDocument = {
     '/auth/users': {
       get: getUsers,
       post: seedUsers,
+    },
+    '/parking-spot': {
+      post: seedParkSpot,
     },
     '/booking': {
       post: postBooking,

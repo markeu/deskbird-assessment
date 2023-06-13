@@ -62,6 +62,30 @@ export const seedUsers = {
   },
 };
 
+export const seedParkSpot = {
+  tags: ['Parking-Spot'],
+  description: 'Seed parking spot into the system',
+  operationId: 'seedParking',
+  security: [
+    {
+      bearerAuth: [],
+    },
+  ],
+  responses: {
+    '200': {
+      description: 'Seed hypothetical parking spot values',
+      content: {
+        'application/json': {
+          schema: {
+            type: 'string',
+            example: 'Successfully Seeded Parking Spots!!'
+          },
+        },
+      },
+    },
+  },
+};
+
 export const postBooking = {
   tags: ['Bookings'],
   description: 'Create a booking',
