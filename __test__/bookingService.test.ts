@@ -57,8 +57,8 @@ describe('BookingService', () => {
         });
 
         it('should throw an error if the parking spot is currently occupied', async () => {
-            const startTime = new Date();
-            const endTime = new Date();
+            const startTime = new Date("2023-08-12T11:00:00");
+            const endTime = new Date("2023-08-12T13:27:00");
             const parkingSpotId = 1;
             const createdBy = 'user@example.com';
 

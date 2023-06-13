@@ -218,7 +218,6 @@ export const getBooking = {
   },
 };
 
-
 export const patchBooking = {
   tags: ['Bookings'],
   description: 'Update a booking',
@@ -329,4 +328,3 @@ export const deleteBooking = {
     },
   },
 };
-
