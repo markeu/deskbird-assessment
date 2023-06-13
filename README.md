@@ -1,12 +1,10 @@
 <div align="center">
-  <h2 align="center">Book A Spot</h2>
+  <h2 align="center">Book-a-Spot</h2>
 </div>
 
-# Deskbird Assessment for Senior Backend Node Engineer 
 
 ## About The Project
-
-Build a service in Node, which allows a user based on the permission level (admin or standard) to make CRUD operations for a parking spot booking.This is an ExpressJS application with the following features.
+This is an ExpressJS application with the following features.
 
 - Typescript all the way
 - EsLint, Prettier and Husky integration
@@ -72,7 +70,7 @@ PS: Please note that the server is not currently hosted, so the URL will become 
 [You can find the full documentation here](http://localhost:4000/api-docs/)
 
 
-# Testing
+## Testing
 
 To perform testing, you can utilize the provided documentation URL and follow these steps:
 
