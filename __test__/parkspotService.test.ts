@@ -1,7 +1,7 @@
 
 import { LoggerClient } from '../src/services/LoggerClient';
-import ParkingSpotRepository from '../src/repositories/ParkSpotRepository';
 import ParkSpotService from '../src/services/ParkSpotService';
+import ParkingSpotRepository from '../src/repositories/ParkSpotRepository';
 
 // Mocked dependencies
 const parkingSpotRepositoryMock: jest.Mocked<ParkingSpotRepository> = {

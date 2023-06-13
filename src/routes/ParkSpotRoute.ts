@@ -10,8 +10,8 @@ const router = express.Router();
  */
 const parkSpotController = Container.get(ParkSpotController);
 
-router.get('/park-spot', parkSpotController.getParkingSpot);
-router.get('/park-spots', parkSpotController.getAllParkingSpots);
-router.post('/park-spots', parkSpotController.seedParkingSpot);
+router.get('/get-one', parkSpotController.getParkingSpot);
+router.get('/', parkSpotController.getAllParkingSpots);
+router.post('/', parkSpotController.seedParkingSpot);
 
 export default router;

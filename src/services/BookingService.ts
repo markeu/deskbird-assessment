@@ -1,9 +1,10 @@
 import { Service } from 'typedi';
 
-import { LoggerClient } from './LoggerClient';
-import BookingRepository from '../repositories/BookingRepository';
-import { ApplicationError } from '../utils/ApiError';
 import Booking from '../models/Booking';
+import { LoggerClient } from './LoggerClient';
+import { ApplicationError } from '../utils/ApiError';
+import BookingRepository from '../repositories/BookingRepository';
+import { isAdmin, isCreatedByUser } from '../utils/constant';
 @Service()
 export default class BookingService {
   constructor(public bookingRepository: BookingRepository, public logger: LoggerClient) {}
@@ -29,8 +30,7 @@ export default class BookingService {
   getBookings = async (role: string, email: string) => {
     let result;
 
-    //put the constant away
-    if (role === 'admin') {
+    if (isAdmin(role)) {
       result = await this.bookingRepository.getAllBookings();
     } else {
       result = await this.bookingRepository.getAllUserBookings(email);
@@ -51,12 +51,12 @@ export default class BookingService {
       throw new ApplicationError('Booking not found');
     }
 
-    if (userRole === 'admin') {
+    if (isAdmin(userRole)) {
       const updatedBooking = await this.bookingRepository.updateBookingById(bookingId, updatedBookingData);
       return updatedBooking;
     }
 
-    if (booking.createdBy !== userEmail) {
+    if (isCreatedByUser(booking.createdBy, userEmail)) {
       throw new ApplicationError('You can only update your own bookings');
     }
 
@@ -71,12 +71,12 @@ export default class BookingService {
       throw new ApplicationError('Booking not found');
     }
 
-    if (userRole === 'admin') {
+    if (isAdmin(userRole)) {
       await this.bookingRepository.deleteBookingById(bookingId);
       return 'Booking deleted successfully';
     }
 
-    if (booking.createdBy !== userEmail) {
+    if (isCreatedByUser(booking.createdBy, userEmail)) {
       throw new ApplicationError('You can only delete your own bookings');
     }
 

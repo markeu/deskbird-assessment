@@ -12,6 +12,6 @@ const authController = Container.get(AuthController);
 
 router.post('/sign-up',  authController.signUp);
 router.get('/users', authController.getAllUsers);
-router.post('/users', authController.seedUsers);
+router.post('/seed-users', authController.seedUsers);
 
 export default router;

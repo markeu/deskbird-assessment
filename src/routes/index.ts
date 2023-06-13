@@ -11,7 +11,7 @@ const allRoutes = [
     route: authRoute,
   },
   {
-    path: '/parking',
+    path: '/parking-spot',
     route: parkSpotRoute,
   },
   {

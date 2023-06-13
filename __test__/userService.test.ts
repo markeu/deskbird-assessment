@@ -1,15 +1,15 @@
-import UserRepository from '../src/repositories/UserRepository';
+import User from '../src/models/User';
 import UserService from '../src/services/UserService';
 import { LoggerClient } from '../src/services/LoggerClient';
-import User from '../src/models/User';
+import UserRepository from '../src/repositories/UserRepository';
 
-jest.mock('../src/repositories/UserRepository');
 jest.mock('../src/services/LoggerClient');
+jest.mock('../src/repositories/UserRepository');
 
 describe('UserService', () => {
   let userService: UserService;
-  let userRepositoryMock: jest.Mocked<UserRepository>;
   let loggerClientMock: jest.Mocked<LoggerClient>;
+  let userRepositoryMock: jest.Mocked<UserRepository>;
 
   beforeEach(() => {
     userRepositoryMock = new UserRepository() as jest.Mocked<UserRepository>;
