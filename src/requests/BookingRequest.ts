@@ -10,5 +10,5 @@ export class CreateBookingRequest {
   endTime: string;
 
   @IsNotEmpty()
-  parkingSpotId: number
+  parkingSpotId: number;
 }

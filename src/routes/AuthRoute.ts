@@ -10,7 +10,7 @@ const router = express.Router();
  */
 const authController = Container.get(AuthController);
 
-router.post('/sign-up',  authController.signUp);
+router.post('/sign-up', authController.signUp);
 router.get('/users', authController.getAllUsers);
 router.post('/seed-users', authController.seedUsers);
 

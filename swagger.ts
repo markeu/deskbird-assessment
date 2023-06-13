@@ -1,4 +1,5 @@
-import { getUsers } from './src/open-api/api-docs';
+import { getUsers, seedUsers, postBooking, getBooking, patchBooking, deleteBooking } from './src/open-api/api-docs';
+
 export const swaggerDocument = {
   openapi: '3.0.1',
   info: {
@@ -23,6 +24,13 @@ export const swaggerDocument = {
   paths: {
     '/auth/users': {
       get: getUsers,
+      post: seedUsers,
+    },
+    '/booking': {
+      post: postBooking,
+      get: getBooking,
+      patch: patchBooking,
+      delete: deleteBooking
     },
   },
   servers: [
@@ -35,4 +43,68 @@ export const swaggerDocument = {
       description: 'Production Env',
     },
   ],
+  components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+    },
+    schemas: {
+      ErrorResponse: {
+        type: 'object',
+        properties: {
+          error: {
+            type: 'object',
+            properties: {
+              success: {
+                type: 'boolean',
+                const: false,
+                description: 'Indicates if the request was successful',
+              },
+              message: {
+                type: 'string',
+                description: 'Error message',
+              },
+              rawErrors: {
+                type: 'array',
+                items: {
+                  type: 'string',
+                },
+                description: 'Raw error messages',
+              },
+              stack: {
+                type: 'string',
+                description: 'Stack trace of the error',
+              },
+            },
+            required: ['success', 'message', 'rawErrors', 'stack'],
+            additionalProperties: false,
+          },
+        },
+        required: ['error'],
+        additionalProperties: false,
+      },
+      Booking: {
+        type: 'object',
+        properties: {
+          startTime: {
+            type: 'string',
+            format: 'date-time',
+            description: 'Start time of the booking',
+          },
+          endTime: {
+            type: 'string',
+            format: 'date-time',
+            description: 'End time of the booking',
+          },
+          parkingSpotId: {
+            type: 'integer',
+            description: 'ID of the parking spot',
+          },
+        },
+      },
+    },
+  },
 };
