@@ -30,8 +30,8 @@ describe('BookingService', () => {
     describe('createParkingSpotBooking', () => {
         it('should create a new booking if all conditions are met', async () => {
 
-            const startTime = new Date();
-            const endTime = new Date();
+            const startTime = new Date('2025-01-01');
+            const endTime = new Date('2025-03-01');
             const parkingSpotId = 1;
             const createdBy = 'user@example.com';
             const newBooking = { id: 1, startTime, endTime, parkingSpotId, createdBy };
@@ -84,7 +84,7 @@ describe('BookingService', () => {
         });
 
         it('should get user-specific bookings for a non-admin user', async () => {
-            const role = 'user';
+            const role = 'standard';
             const email = 'user@example.com';
             const bookings = [{ id: 1 }, { id: 2 }];
 
@@ -116,7 +116,7 @@ describe('BookingService', () => {
         it('should throw an error if the booking does not exist', async () => {
             const bookingId = 1;
             const updatedBookingData = { startTime: new Date() };
-            const userRole = 'user';
+            const userRole = 'standard';
             const userEmail = 'user@example.com';
 
             bookingRepositoryMock.findByBookingId = jest.fn().mockResolvedValue(null);
@@ -129,7 +129,7 @@ describe('BookingService', () => {
         it('should throw an error if a non-admin user tries to update another user\'s booking', async () => {
             const bookingId = 1;
             const updatedBookingData = { startTime: new Date() };
-            const userRole = 'user';
+            const userRole = 'standard';
             const userEmail = 'user@example.com';
 
             bookingRepositoryMock.findByBookingId = jest.fn().mockResolvedValue({ id: 1, createdBy: 'otheruser@example.com' });
@@ -157,7 +157,7 @@ describe('BookingService', () => {
 
         it('should throw an error if the booking does not exist', async () => {
             const bookingId = 1;
-            const userRole = 'user';
+            const userRole = 'standard';
             const userEmail = 'user@example.com';
 
             bookingRepositoryMock.findByBookingId = jest.fn().mockResolvedValue(null);
@@ -169,7 +169,7 @@ describe('BookingService', () => {
 
         it('should throw an error if a non-admin user tries to delete another user\'s booking', async () => {
             const bookingId = 1;
-            const userRole = 'user';
+            const userRole = 'standard';
             const userEmail = 'user@example.com';
 
             bookingRepositoryMock.findByBookingId = jest.fn().mockResolvedValue({ id: 1, createdBy: 'otheruser@example.com' });
